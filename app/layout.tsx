@@ -3,12 +3,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Inter as FontSans, Fuzzy_Bubbles } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 export const metadata: Metadata = {
   title: "Mkhasa",

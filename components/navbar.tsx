@@ -39,7 +39,7 @@ export const Navbar = async () => {
               <li key={index}>
                 <SheetClose asChild>
                   <Link
-                    href={`/categories/${encodeURIComponent(name)}`}
+                    href={`/categories/${encodeURIComponent(name.trim())}`}
                     className="flex items-center gap-3 py-1 hover:text-destructive"
                   >
                     {name}

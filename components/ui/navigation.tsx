@@ -6,6 +6,8 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { ChevronsRight } from "lucide-react";
+import { Fragment } from "react";
 
 export const Navigation = ({
   heirachy,
@@ -19,16 +21,20 @@ export const Navigation = ({
       <BreadcrumbList>
         {heirachy.map(({ href, display }, index) => {
           return index === heirachy.length - 1 ? (
-            <BreadcrumbItem>
-              <BreadcrumbPage>{display}</BreadcrumbPage>
+            <BreadcrumbItem key={index}>
+              <BreadcrumbPage className="text-white text-lg font-semibold">
+                {display}
+              </BreadcrumbPage>
             </BreadcrumbItem>
           ) : (
-            <>
-              <BreadcrumbItem>
+            <Fragment key={index}>
+              <BreadcrumbItem className="text-white/50 text-lg font-semibold">
                 <BreadcrumbLink href={href}>{display}</BreadcrumbLink>
               </BreadcrumbItem>
-              <BreadcrumbSeparator />
-            </>
+              <BreadcrumbSeparator>
+                <ChevronsRight className="text-white/50" />
+              </BreadcrumbSeparator>
+            </Fragment>
           );
         })}
       </BreadcrumbList>
