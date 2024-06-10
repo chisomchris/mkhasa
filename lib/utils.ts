@@ -26,3 +26,8 @@ export const copyToClipboard = (str: string) => {
     }
   }
 };
+
+export const format = (number: number) => {
+  if (Number.isNaN(number)) return "";
+  return new Intl.NumberFormat().format(number);
+};

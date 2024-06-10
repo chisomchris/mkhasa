@@ -1,20 +1,28 @@
 import React from "react";
 import { Wrapper } from "./ui/wrapper";
 import Link from "next/link";
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Mail,
+  MapPin,
+  Phone,
+  Twitter,
+  Youtube,
+} from "lucide-react";
 import { Logo } from "./ui/logo";
 import { Tip } from "./ui/custom-tooltip";
 
 export const Footer = () => {
   return (
-    <footer className="bg-foreground/85 dark:bg-foreground/75 text-background py-3">
+    <footer className="bg-primary-foreground text-foreground/85 py-3">
       <Wrapper>
         <div className="grid gap-y-5 grid-cols-1 md:grid-cols-12 items-start">
           <div className="hidden md:flex justify-start md:col-span-3">
-            <Logo inverted />
+            <Logo />
           </div>
 
-          <div className="md:col-span-3">
+          <section className="md:col-span-3">
             <h2 className="text-lg font-bold">Explore Mkhasa</h2>
             <ul>
               <li>
@@ -58,32 +66,39 @@ export const Footer = () => {
                 </Link>
               </li>
             </ul>
-          </div>
+          </section>
 
-          <div className="md:col-span-3">
+          <section className="md:col-span-3">
             <h2 className="text-lg font-bold">Contact Us</h2>
-            <div>
-              {/* <p>House 92, Dele Orisabiyi Street Okota Lagos State</p> */}
-              <p>
-                Call Us: <Tip trigger="9013898261" content="click to copy" />
-              </p>
-              <p>Email: info@mkhasa.com</p>
-
-              <h3 className="font-bold mt-2">Support/Sales Team</h3>
-              <p>
-                Call Us:{" "}
-                <Tip
-                  trigger={<span>09131451391</span>}
-                  content="click to copy"
-                />
-              </p>
-
-              <p>Email: sales@mkhasa.com</p>
-              <p>Email: support@mkhasa.com</p>
+            <div className="flex gap-2 pt-3">
+              <MapPin className="text-destructive" />
+              <p>House 92, Dele Orisabiyi Street Okota Lagos State.</p>
             </div>
-          </div>
+            <div className="flex gap-2 pt-3">
+              <Phone className="text-destructive" />{" "}
+              <Tip trigger="09013898261" content="click to copy" />
+            </div>
+            <div className="flex gap-2 pt-3">
+              <Mail className="text-destructive" />{" "}
+              <a href="mailto:info@mkhasa.com">info@mkhasa.com</a>
+            </div>
 
-          <div className="md:col-span-3">
+            <h3 className="font-bold mt-6">Support/Sales Team</h3>
+            <div className="flex gap-2 pt-3">
+              <Phone className="text-destructive" />{" "}
+              <Tip trigger={<span>09131451391</span>} content="click to copy" />
+            </div>
+            <div className="flex gap-2 pt-3">
+              <Mail className="text-destructive" />{" "}
+              <a href="mailto:sales@mkhasa.com">sales@mkhasa.com</a>
+            </div>
+            <div className="flex gap-2 pt-3">
+              <Mail className="text-destructive" />{" "}
+              <a href="mailto:support@mkhasa.com">support@mkhasa.com</a>
+            </div>
+          </section>
+
+          <section className="md:col-span-3">
             <h2 className="text-lg font-bold md:pr-20 md:text-right">
               Socials
             </h2>
@@ -97,6 +112,7 @@ export const Footer = () => {
                   aria-label="link to Mkhasa instagram page"
                 >
                   <Instagram className="hover:text-destructive" />
+                  <p className="sr-only">Mkhasa instagram page</p>
                 </a>
               </li>
               <li>
@@ -108,6 +124,7 @@ export const Footer = () => {
                   aria-label="link to Mkhasa X (formerly known as twitter) page"
                 >
                   <Twitter className="hover:text-destructive" />
+                  <p className="sr-only">Mkhasa X (formerly Twitter) page</p>
                 </a>
               </li>
               <li>
@@ -119,6 +136,7 @@ export const Footer = () => {
                   aria-label="link to Mkhasa meta (formerly known as facebook) page"
                 >
                   <Facebook className="hover:text-destructive" />
+                  <p className="sr-only">Mkhasa Facebook page</p>
                 </a>
               </li>
               <li>
@@ -130,6 +148,7 @@ export const Footer = () => {
                   aria-label="link to Mkhasa youtube page"
                 >
                   <Youtube className="hover:text-destructive" />
+                  <p className="sr-only">Mkhasa Youtube page</p>
                 </a>
               </li>
               <li>
@@ -145,14 +164,15 @@ export const Footer = () => {
                     style={{ fontSize: 32 }}
                     className="hover:text-destructive "
                   /> */}
+                  <p className="sr-only">Mkhasa Tiktok page</p>
                 </a>
               </li>
             </ul>
-          </div>
+          </section>
         </div>
 
         <div className="pt-2 md:hidden">
-          <Logo inverted />
+          <Logo />
         </div>
 
         <p className="pt-10 sm:text-right md:text-center">

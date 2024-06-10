@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { Menu } from "lucide-react";
 import { Button } from "./ui/button";
@@ -10,26 +8,19 @@ import {
   SheetHeader,
   SheetTrigger,
 } from "./ui/sheet";
+import axios from "axios";
+import { env } from "@/lib/env";
 
-export const Navbar = ({}) => {
-  const categories = [
-    {
-      name: "Perfume one",
-    },
-    {
-      name: "Perfume 2",
-    },
-    {
-      name: "Perfume four",
-    },
-  ];
-
-  // const css = `
-  //               body {
-  //                     overflow: hidden;
-  //                   }
-  //             `;
-
+export const Navbar = async () => {
+  async function getCategories() {
+    try {
+      const response = await axios.get(`${env.API_BASE_URL}/all/category`);
+      return response.data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  const categories: { name: string }[] = await getCategories();
   return (
     <Sheet>
       <SheetTrigger asChild>

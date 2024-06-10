@@ -5,12 +5,12 @@ import React from "react";
 export default function Page() {
   return (
     <Wrapper className="py-10">
-      <h1 className="text-3xl font-extrabold text-center font-fuzzy">
+      <h1 className="text-3xl font-bold text-center font-fuzzy text-destructive">
         About Mkhasa
       </h1>
       <p className="pb-2">
         At{" "}
-        <Link href="/" className="text-blue-600 underline">
+        <Link href="/" className="text-destructive underline">
           Mkhasa.com
         </Link>
         , our purpose is simple: to deliver the best product at the best price
@@ -18,7 +18,7 @@ export default function Page() {
         get to bring you the best in fragrances.
       </p>
       <p className="pb-2">
-        We aim to inspire the world by showing it’s possible to simultaneously
+        We aim to inspire the world by showing it's possible to simultaneously
         deliver happiness to customers, employees, and vendors, in a long-term,
         remarkable way.
       </p>
@@ -38,7 +38,7 @@ export default function Page() {
         living of our customers as enjoyable and worthwhile as possible.
       </p>
       <p className="pb-2">
-        The team at the company aren’t left out as Mkhasa Technologies Limited
+        The team at the company aren't left out as Mkhasa Technologies Limited
         aims to add value to each team member every day. Although Mkhasa
         maintains itself as a service company that happens to sell fragrances,
         we believe that humility, integrity, and compassion are important

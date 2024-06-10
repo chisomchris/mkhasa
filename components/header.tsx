@@ -1,17 +1,27 @@
-import { Search, ShoppingCart, User } from "lucide-react";
+import { Menu, Search, ShoppingCart, User, X } from "lucide-react";
 import Link from "next/link";
 import { Wrapper } from "./ui/wrapper";
 import { ModeToggle } from "./ui/toggle-theme";
 import { Logo } from "./ui/logo";
 import { Input } from "./ui/input";
 import { Navbar } from "./navbar";
+import { Suspense } from "react";
+import { Button } from "./ui/button";
 
-export const Header = () => {
+export const Header = async () => {
   return (
     <header className="bg-primary-foreground">
       <Wrapper className="relative flex items-center justify-between gap-x-8 pb-[64px] md:pb-4">
         <div className="flex items-center gap-2 md:gap-4">
-          <Navbar />
+          <Suspense
+            fallback={
+              <Button variant="outline" className="px-2 bg-primary-foreground">
+                <Menu size={28} />
+              </Button>
+            }
+          >
+            <Navbar />
+          </Suspense>
           <Logo />
         </div>
 
