@@ -61,6 +61,14 @@ export const Login = () => {
                 placeholder="password"
               />
             </label>
+            <p className="text-right mt-2">
+              <Link
+                href="/auth/reset-password"
+                className="font-fuzzy text-destructive underline"
+              >
+                Forgot password?{" "}
+              </Link>
+            </p>
             <Button className="w-full mt-6" type="submit">
               Sign In
             </Button>

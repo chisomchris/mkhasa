@@ -9,9 +9,6 @@ import { Product, ProductProps } from "@/components/ui/product-card";
 import axios from "axios";
 import { env } from "@/lib/env";
 import { SortBtn } from "./sort";
-export const metadata = {
-  title: "Mkhasa | Cart",
-};
 
 export default async function Page({
   params,
@@ -81,6 +78,26 @@ export default async function Page({
   );
 }
 
+import type { Metadata, ResolvingMetadata } from "next";
+
+type Props = {
+  params: { category: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const category = decodeURIComponent(params.category);
+  // const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: `Mkhasa | ${category}`,
+  };
+}
+
 async function getProducts(category: string) {
   try {
     const response = await axios.get(
@@ -99,55 +116,3 @@ async function getProducts(category: string) {
     console.error(error);
   }
 }
-
-// import { useParams } from "react-router-dom";
-// import { useInfiniteProducts } from "../hooks/query/useProducts";
-// import { Product } from "../components/ProductCard";
-// import { Icon } from "@iconify/react";
-// import { Sort } from "../components/Sort";
-// import { useSearchParams } from "react-router-dom/dist";
-// import { SectionHeader } from "@/components/ui/section-header";
-
-// export const Component = () => {
-//   const { category } = useParams();
-//   const [searchParams, setSearchParams] = useSearchParams();
-//   if (!category) throw new Error("Invalid category");
-//   const sortBy = searchParams.get("sort") || "";
-//   const filterBy = searchParams.get("filter") || "";
-
-//   const url = filterBy
-//     ? `product/category/${category}/appeal/${filterBy}`
-//     : sortBy
-//     ? `product/category/${sortBy}/${category}`
-//     : `product/category/${category}`;
-
-//   const {
-//     data,
-//     fetchNextPage,
-//     hasNextPage,
-//     isFetching,
-//     isFetchingNextPage,
-//     status,
-//   } = useInfiniteProducts(url, "category", category, { sortBy, filterBy });
-
-//   const onClick = (term) => {
-//     if (typeof term !== "string") return;
-//     if (!term) {
-//       return setSearchParams({});
-//     }
-//     if (term.startsWith("sort")) {
-//       searchParams.has("filter") && searchParams.delete("filter");
-//       setSearchParams({ ...searchParams, sort: term.split("-")[1] });
-//     }
-//     if (term.startsWith("filter")) {
-//       searchParams.has("sort") && searchParams.delete("sort");
-//       setSearchParams({ ...searchParams, filter: term.split("-")[1] });
-//     }
-//   };
-
-//   return (
-//     <>
-//       <section></section>
-//     </>
-//   );
-// };

@@ -3,7 +3,7 @@ import { Wrapper } from "@/components/ui/wrapper";
 export default function Page() {
   return (
     <Wrapper>
-      <h2 className="text-2xl font-bold mb-4 font-fuzzy">Delivery Policy</h2>
+      <h2 className="text-2xl font-bold mb-4 font-fuzzy text-destructive">Delivery Policy</h2>
 
       <h3 className="text-xl font-bold mb-2 font-fuzzy">Business Days</h3>
       <p className="mb-4">Monday to Saturday</p>

@@ -9,7 +9,7 @@ export default function Layout({
   return (
     <>
       <Header />
-      {children}
+      <main className="pt-[120px] md:pt-[77px]">{children}</main>
       <Footer />
     </>
   );

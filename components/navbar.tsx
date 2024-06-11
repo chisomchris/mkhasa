@@ -10,6 +10,7 @@ import {
 } from "./ui/sheet";
 import axios from "axios";
 import { env } from "@/lib/env";
+import { ActiveLink } from "./ui/active-link";
 
 export const Navbar = async () => {
   async function getCategories() {
@@ -37,14 +38,12 @@ export const Navbar = async () => {
           <ul>
             {categories.map(({ name }, index) => (
               <li key={index}>
-                <SheetClose asChild>
-                  <Link
-                    href={`/categories/${encodeURIComponent(name.trim())}`}
-                    className="flex items-center gap-3 py-1 hover:text-destructive"
-                  >
-                    {name}
-                  </Link>
-                </SheetClose>
+                <ActiveLink
+                  href={`/categories/${encodeURIComponent(name.trim())}`}
+                  className="flex items-center gap-3 py-1 hover:text-destructive"
+                >
+                  <SheetClose>{name}</SheetClose>
+                </ActiveLink>
               </li>
             ))}
           </ul>

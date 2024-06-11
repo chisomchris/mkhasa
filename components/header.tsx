@@ -10,7 +10,7 @@ import { Button } from "./ui/button";
 
 export const Header = async () => {
   return (
-    <header className="bg-primary-foreground">
+    <header className="bg-primary-foreground fixed top-0 left-0 right-0 z-[49]">
       <Wrapper className="relative flex items-center justify-between gap-x-8 pb-[64px] md:pb-4">
         <div className="flex items-center gap-2 md:gap-4">
           <Suspense

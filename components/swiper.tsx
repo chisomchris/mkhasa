@@ -31,7 +31,7 @@ function CustomInd({ count, current }: { count: number; current: number }) {
 
 export function Swiper() {
   const plugin = React.useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: true })
+    Autoplay({ delay: 5000, stopOnInteraction: false })
   );
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);

@@ -4,7 +4,7 @@ import React from "react";
 export default function Page() {
   return (
     <Wrapper className="py-10">
-      <h1 className="text-3xl font-extrabold font-fuzzy text-center mb-6">
+      <h1 className="text-3xl font-extrabold font-fuzzy text-center mb-6 text-destructive">
         Privacy Policy
       </h1>
 
