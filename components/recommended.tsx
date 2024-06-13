@@ -5,16 +5,16 @@ import { Product, ProductProps } from "./ui/product-card";
 import axios from "axios";
 import { env } from "@/lib/env";
 
-export const Deal = async () => {
-  const deal = await getDeals();
+export const Recommended = async () => {
+  const newIn = await getRecommended();
   return (
     <section className="py-8">
-      <SectionHeader text="Deal" />
+      <SectionHeader text="We also recommend" />
 
       <Suspense fallback={<List />}>
-        {deal !== null ? (
+        {newIn !== null ? (
           <ul className="pt-6 grid gap-4 min-[360px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-            {deal.map(
+            {newIn.map(
               (
                 { product, category, price, image, id }: ProductProps,
                 index: number
@@ -40,17 +40,16 @@ export const Deal = async () => {
   );
 };
 
-async function getDeals() {
+async function getRecommended() {
   try {
-    const response = await axios.get(`${env.API_BASE_URL}/deal/product`);
-    return response.data.map((x: any) => {
+    const response = await axios.get(`${env.API_BASE_URL}/recommend`);
+    return response.data.map(({ product }: any) => {
       return {
-        id: x.product?._id || 0,
-        product: x.product.name,
-        category: x.product.category,
-        price: x.product.price,
-        image:
-          x.product.mainImage || x.product.firstImage || x.product.secondImage,
+        id: product?._id || 0,
+        product: product.name,
+        category: product.category,
+        price: product.price,
+        image: product.mainImage || product.firstImage || product.secondImage,
       };
     });
   } catch (error) {

@@ -13,7 +13,8 @@ import Link from "next/link";
 import { z } from "zod";
 import { toFormikValidationSchema } from "zod-formik-adapter";
 
-export const Login = () => {
+export const Login = ({ callback_uri }: { callback_uri: string }) => {
+  console.log({ callback_uri });
   const formik = useFormik({
     initialValues: { email: "", password: "" },
     validationSchema: toFormikValidationSchema(
@@ -94,7 +95,11 @@ export const Login = () => {
 
           <Button
             className="w-full"
-            onClick={async () => await signIn("google")}
+            onClick={async () =>
+              await signIn("google", {
+                callbackUrl: callback_uri,
+              })
+            }
           >
             <Image
               src={google_icon}

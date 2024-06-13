@@ -8,7 +8,7 @@ import { Button } from "./ui/button";
 
 const SwiperCard = () => {
   return (
-    <div className="relative min-h-[240px] max-w-3xl grid items-center w-full bg-[#A40001] rounded-3xl overflow-hidden sm:min-h-[300px]">
+    <div className="relative min-h-[240px] max-w-3xl grid items-center w-full bg-gradient-to-tr from-destructive/35 via-gray-800/50 to-destructive rounded-3xl overflow-hidden sm:min-h-[300px] dark:via-background dark:to-destructive">
       <div className="z-50 px-4 min-[420px]:px-9 lg:px-6">
         <h1 className="text-white font-bold leading-tight">
           <span>Step into A world</span>

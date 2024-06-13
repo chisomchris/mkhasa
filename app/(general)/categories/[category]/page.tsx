@@ -29,7 +29,7 @@ export default async function Page({
                 { display: category, href: "/" },
               ]}
             />
-            <h2 className="text-3xl font-bold tracking-tighter text-white md:text-4xl md:tracking-normal">
+            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl md:tracking-normal">
               {category}
             </h2>
           </Wrapper>

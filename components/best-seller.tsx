@@ -13,25 +13,29 @@ export const BestSellers = async () => {
       <SectionHeader text="Best Sellers" />
 
       <Suspense fallback={<List />}>
-        <ul className="pt-6 grid gap-4 min-[360px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-          {bestSellers.map(
-            (
-              { product, category, price, image, id }: ProductProps,
-              index: number
-            ) => (
-              <li key={index} className="md:flex-shrink-0 grow">
-                <Product
-                  product={product}
-                  category={category}
-                  price={price}
-                  image={image}
-                  id={id}
-                  className="min-w-[10rem]"
-                />
-              </li>
-            )
-          )}
-        </ul>
+        {bestSellers !== null ? (
+          <ul className="pt-6 grid gap-4 min-[360px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+            {bestSellers.map(
+              (
+                { product, category, price, image, id }: ProductProps,
+                index: number
+              ) => (
+                <li key={index} className="md:flex-shrink-0 grow">
+                  <Product
+                    product={product}
+                    category={category}
+                    price={price}
+                    image={image}
+                    id={id}
+                    className="min-w-[10rem]"
+                  />
+                </li>
+              )
+            )}
+          </ul>
+        ) : (
+          <p>Opps</p>
+        )}
       </Suspense>
     </section>
   );
@@ -40,16 +44,17 @@ export const BestSellers = async () => {
 async function getBestSeller() {
   try {
     const response = await axios.get(`${env.API_BASE_URL}/bestseller/product`);
-    return response.data.map((x: any) => {
+    return response.data.map(({ product }: any) => {
       return {
-        id: x.product._id,
-        product: x.product.name,
-        category: x.product.category,
-        price: x.product.price,
-        image: x.product.mainImage,
+        id: product._id,
+        product: product.name,
+        category: product.category,
+        price: product.price,
+        image: product.mainImage,
       };
     });
   } catch (error) {
     console.error(error);
+    return null;
   }
 }

@@ -12,25 +12,29 @@ export const NewIn = async () => {
       <SectionHeader text="New In" />
 
       <Suspense fallback={<List />}>
-        <ul className="pt-6 grid gap-4 min-[360px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-          {newIn.map(
-            (
-              { product, category, price, image, id }: ProductProps,
-              index: number
-            ) => (
-              <li key={index} className="md:flex-shrink-0 grow">
-                <Product
-                  product={product}
-                  category={category}
-                  price={price}
-                  image={image}
-                  id={id}
-                  className="min-w-[10rem]"
-                />
-              </li>
-            )
-          )}
-        </ul>
+        {newIn !== null ? (
+          <ul className="pt-6 grid gap-4 min-[360px]:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+            {newIn.map(
+              (
+                { product, category, price, image, id }: ProductProps,
+                index: number
+              ) => (
+                <li key={index} className="md:flex-shrink-0 grow">
+                  <Product
+                    product={product}
+                    category={category}
+                    price={price}
+                    image={image}
+                    id={id}
+                    className="min-w-[10rem]"
+                  />
+                </li>
+              )
+            )}
+          </ul>
+        ) : (
+          <p>Opps</p>
+        )}
       </Suspense>
     </section>
   );
@@ -50,5 +54,6 @@ async function getNewArrivals() {
     });
   } catch (error) {
     console.error(error);
+    return null;
   }
 }

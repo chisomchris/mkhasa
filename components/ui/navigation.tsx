@@ -22,17 +22,17 @@ export const Navigation = ({
         {heirachy.map(({ href, display }, index) => {
           return index === heirachy.length - 1 ? (
             <BreadcrumbItem key={index}>
-              <BreadcrumbPage className="text-white text-lg font-semibold">
+              <BreadcrumbPage className="text-lg font-semibold">
                 {display}
               </BreadcrumbPage>
             </BreadcrumbItem>
           ) : (
             <Fragment key={index}>
-              <BreadcrumbItem className="text-white/50 text-lg font-semibold">
+              <BreadcrumbItem className="text-opacity-95 text-lg font-semibold">
                 <BreadcrumbLink href={href}>{display}</BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator>
-                <ChevronsRight className="text-white/50" />
+                <ChevronsRight className="text-opacity-75" size={28} />
               </BreadcrumbSeparator>
             </Fragment>
           );
