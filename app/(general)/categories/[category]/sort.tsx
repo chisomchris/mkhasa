@@ -49,7 +49,7 @@ export const SortBtn = ({}) => {
         Sort By <ChevronDown size={28} />
       </Button>
       <ul
-        className={`absolute top-full right-0 py-4 bg-clip-padding backdrop-filter backdrop-blur-none bg-opacity-50 shadow-foreground/15 shadow-sm rounded-sm ${
+        className={`absolute top-full right-0 py-4 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-50 shadow-foreground/15 shadow-sm rounded-sm ${
           show ? "" : "hidden"
         }`}
       >
