@@ -10,12 +10,13 @@ import { Wrapper } from "@/components/ui/wrapper";
 import { Heading } from "@/components/ui/heading";
 import { FInput, FPasswordInput } from "@/components/input-with-formik";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { toFormikValidationSchema } from "zod-formik-adapter";
 import { Logo } from "@/components/ui/logo";
 import { ModeToggle } from "@/components/ui/toggle-theme";
+import { useRouter } from "next/navigation";
 
 export const Register = () => {
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const schema = z.object({
     username: z.string().min(3, "must be at least 3 characters"),
@@ -46,9 +47,7 @@ export const Register = () => {
         if (response.status === 200) {
           setIsSubmitting(false);
           console.log(response);
-          useRouter().push(
-            `/confirm-otp?email=${encodeURIComponent(values.email)}`
-          );
+          router.push(`/confirm-otp?email=${encodeURIComponent(values.email)}`);
         }
         console.log(response);
       } catch (error) {

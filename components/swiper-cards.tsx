@@ -100,4 +100,8 @@ export const SwiperCard2 = () => {
   );
 };
 
-export const cards = [<SwiperCard />, <SwiperCard1 />, <SwiperCard2 />];
+export const cards = [
+  <SwiperCard key={0} />,
+  <SwiperCard1 key={1} />,
+  <SwiperCard2 key={2} />,
+];
