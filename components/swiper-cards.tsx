@@ -21,7 +21,7 @@ const SwiperCard = () => {
         <p className="hidden text-xs max-w-48 text-white md:block md:text-sm">
           Discover your signature scent, one spritz at a time.
         </p>
-        <Button className="px-4 text-xs mt-3 font-bold text-destructive bg-white rounded-full  md:px-6">
+        <Button className="px-4 text-xs mt-3 font-bold text-white bg-black rounded-full md:px-6 hover:bg-black/80">
           Explore Collection
         </Button>
       </div>
@@ -53,7 +53,7 @@ const SwiperCard1 = () => {
         <p className="hidden text-xs max-w-48 text-black md:block md:text-sm">
           Eleveate your senses with our enchating Fragnances
         </p>
-        <Button className="px-4 text-xs mt-3 font-bold bg-destructive text-white rounded-full md:px-6">
+        <Button className="px-4 text-xs mt-3 font-bold bg-black text-white rounded-full md:px-6 hover:bg-black/80">
           Explore Collection
         </Button>
       </div>
@@ -83,7 +83,7 @@ export const SwiperCard2 = () => {
           Swift delivery, seamless service, bringing convenience to your
           doorstep.
         </p>
-        <Button className="px-4 text-xs mt-3 font-bold text-destructive bg-white rounded-full md:px-6">
+        <Button className="px-4 text-xs mt-3 font-bold text-white bg-black rounded-full md:px-6 hover:bg-black/80">
           Explore Collection
         </Button>
       </div>

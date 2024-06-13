@@ -72,12 +72,12 @@ export default async function Page({ params }: { params: { id: string } }) {
                 </Button>
               </div>
 
-              <div className="flex gap-4 overflow-x-auto pt-4">
+              <div className="flex gap-4 overflow-x-auto p-4">
                 {!!product.mainImage ? (
                   <Image
                     src={product.mainImage}
                     alt="mainImage"
-                    className="w-28 aspect-square "
+                    className="w-28 aspect-square shadow-[0px_0px_2px_hsla(var(--foreground)/.25)]"
                     width={100}
                     height={100}
                   />
@@ -86,7 +86,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                   <Image
                     src={product.firstImage}
                     alt="firstImage"
-                    className="w-28 aspect-square "
+                    className="w-28 aspect-square shadow-[0px_0px_2px_hsla(var(--foreground)/.25)]"
                     width={100}
                     height={100}
                   />
@@ -95,7 +95,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                   <Image
                     src={product.secondImage}
                     alt="secondImage"
-                    className="w-28 aspect-square "
+                    className="w-28 aspect-square shadow-[0px_0px_2px_hsla(var(--foreground)/.25)]"
                     width={100}
                     height={100}
                   />
@@ -104,7 +104,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                   <Image
                     src={product.thirdImage}
                     alt="thirdImage"
-                    className="w-28 aspect-square "
+                    className="w-28 aspect-square shadow-[0px_0px_2px_hsla(var(--foreground)/.25)]"
                     width={100}
                     height={100}
                   />
