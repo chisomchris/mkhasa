@@ -15,7 +15,7 @@ import { Tip } from "./ui/custom-tooltip";
 
 export const Footer = () => {
   return (
-    <footer className="bg-primary-foreground text-foreground/85 py-3">
+    <footer className="bg-primary-foreground text-foreground/85 py-3 mt-auto">
       <Wrapper>
         <div className="grid gap-y-5 grid-cols-1 md:grid-cols-12 items-start">
           <div className="hidden md:flex justify-start md:col-span-3">
