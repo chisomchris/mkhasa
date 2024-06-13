@@ -7,8 +7,11 @@ import { Input } from "./ui/input";
 import { Navbar } from "./navbar";
 import { Suspense } from "react";
 import { Button } from "./ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { auth } from "@/auth";
 
 export const Header = async () => {
+  const session = await auth();
   return (
     <header className="bg-primary-foreground fixed top-0 left-0 right-0 z-[49]">
       <Wrapper className="relative flex items-center justify-between gap-x-8 pb-[64px] md:pb-4">
@@ -45,7 +48,12 @@ export const Header = async () => {
         <div className="flex items-center justify-between gap-2 sm:gap-4">
           <ModeToggle />
           <CartButton />
-          <User />
+          <Avatar>
+            <AvatarImage src={session?.user.image} />
+            <AvatarFallback>
+              <User />
+            </AvatarFallback>
+          </Avatar>
         </div>
       </Wrapper>
     </header>

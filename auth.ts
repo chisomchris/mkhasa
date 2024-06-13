@@ -60,59 +60,59 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       // if not, redirect user to page for complete registration
       return true;
     },
-    jwt: async ({
-      token,
-      user,
-      account,
-    }: {
-      token: JWT;
-      user: AdapterUser | User;
-      account: Account | null;
-      profile?: Profile;
-    }) => {
-      if (account?.provider === "google") {
-        if (account) {
-          const user_details = {
-            id: user.id || "",
-            name: user.name || "",
-            email: user.email || "",
-            access_token: account.access_token,
-            provider: account?.provider,
-          };
+    // jwt: async ({
+    //   token,
+    //   user,
+    //   account,
+    // }: {
+    //   token: JWT;
+    //   user: AdapterUser | User;
+    //   account: Account | null;
+    //   profile?: Profile;
+    // }) => {
+    //   if (account?.provider === "google") {
+    //     if (account) {
+    //       const user_details = {
+    //         id: user.id || "",
+    //         name: user.name || "",
+    //         email: user.email || "",
+    //         access_token: account.access_token,
+    //         provider: account?.provider,
+    //       };
 
-          // check if the user exists in the database, if yes return access token and refresh token
-          // if user does not exist, create a new user and return access token and refresh token
-          const { success, data } =
-            TokenRequestParamsSchema.safeParse(user_details);
-          if (success) {
-            const response = await requestToken(data);
-            if (response) {
-              token.accessToken = response.access_token;
-              token.accessTokenExpires = response.access_token_expires;
-              token.refreshToken = response.refresh_token;
-            }
-          }
-        }
-      } else {
-        if (user) {
-          token.access_token = user.access_token;
-          token.refresh_token = user.refresh_token;
-          token.access_token_expires = user.access_token_expires;
-          token.id = user.id!;
-        }
-      }
-      return token;
-    },
+    //       // check if the user exists in the database, if yes return access token and refresh token
+    //       // if user does not exist, create a new user and return access token and refresh token
+    //       const { success, data } =
+    //         TokenRequestParamsSchema.safeParse(user_details);
+    //       if (success) {
+    //         const response = await requestToken(data);
+    //         if (response) {
+    //           token.accessToken = response.access_token;
+    //           token.accessTokenExpires = response.access_token_expires;
+    //           token.refreshToken = response.refresh_token;
+    //         }
+    //       }
+    //     }
+    //   } else {
+    //     if (user) {
+    //       token.access_token = user.access_token;
+    //       token.refresh_token = user.refresh_token;
+    //       token.access_token_expires = user.access_token_expires;
+    //       token.id = user.id!;
+    //     }
+    //   }
+    //   return token;
+    // },
 
-    session: async ({ session, token }: { session: Session; token: JWT }) => {
-      if (session) {
-        session.user.id = token.id;
-        session.access_token = token.access_token;
-        session.refresh_token = token.refresh_token;
-        session.error = token.error;
-      }
-      return session;
-    },
+    // session: async ({ session, token }: { session: Session; token: JWT }) => {
+    //   if (session) {
+    //     session.user.id = token.id;
+    //     session.access_token = token.access_token;
+    //     session.refresh_token = token.refresh_token;
+    //     session.error = token.error;
+    //   }
+    //   return session;
+    // },
   },
   session: {
     strategy: "jwt",
